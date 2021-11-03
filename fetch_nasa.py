@@ -15,13 +15,13 @@ def dowlands_art (url, filename):
 
 def nasa ():
     url_link = 'https://api.nasa.gov/planetary/apod'
-    param_1 = {'api_key': 'bReWmdwdfRQj9Pqec76LrkOudbW3XB6WlD27Zcj9', 'count': '3'}
+    param_1 = {'api_key': 'bReWmdwdfRQj9Pqec76LrkOudbW3XB6WlD27Zcj9', 'count': '35'}
     response = requests.get(url_link, params=param_1)
     response.raise_for_status()
     art_links = response.json()
     for number, i in enumerate(art_links):
         art_link = i['url']
-        filename = f'images_nasa/image{number}{expansion(c)}'
+        filename = f'images_nasa/image{number}{expansion(art_link)}'
         dowlands_art(art_link, filename)
 
 def earth ():

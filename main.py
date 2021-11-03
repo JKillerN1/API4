@@ -21,4 +21,4 @@ timer = 86400
 while True:
     time.sleep(timer)
     random_path = choice(names_directions)
-    bot.send_document(chat_id='@spaceartbott', document=open(f'{random_path}/{choice(os.listdir(random_path))}', 'rb'))
+    bot.send_document(chat_id=os.getenv('CHAT_ID'), document=open(f'{random_path}/{choice(os.listdir(random_path))}', 'rb'))

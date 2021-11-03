@@ -20,7 +20,7 @@ def fetch_spacex_last_launch ():
     url_link = 'https://api.spacexdata.com/v3/launches'
     response = requests.get(url_link)
     response.raise_for_status()
-    art_links = response.json()[67]['links']['flickr_images']
+    art_links = response.json()[-1]['links']['flickr_images']
     for art_number, art in enumerate(art_links):
         filename = f'images/image{art_number+1}{expansion(art)}'
         dowlands_art(art, filename)
