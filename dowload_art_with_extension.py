@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 
 import requests
 
-def expansion (url):
+def extension (url):
     image_expansion = os.path.splitext(urlparse(url).path)
     return image_expansion[1]
 

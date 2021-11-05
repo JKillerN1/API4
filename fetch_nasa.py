@@ -1,17 +1,9 @@
 import os
-from urllib.parse import urlparse
 
 import requests
 
-def extension (url):
-    image_expansion = os.path.splitext(urlparse(url).path)
-    return image_expansion[1]
-
-def dowloands_art (url, filename):
-    response = requests.get(url)
-    response.raise_for_status()
-    with open(filename, 'wb') as file:
-        file.write(response.content)
+from dowload_art_with_extension import extension
+from dowload_art_with_extension import dowloands_art
 
 def nasa ():
     url_nasa_apod = 'https://api.nasa.gov/planetary/apod'
