@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 
 import requests
 
-def expansion (url):
+def extension (url):
     image_expansion = os.path.splitext(urlparse(url).path)
     return image_expansion[1]
 
@@ -21,7 +21,7 @@ def nasa ():
     art_links = response.json()
     for number, i in enumerate(art_links):
         art_link = i['url']
-        filename = f'images_nasa/image{number}{expansion(art_link)}'
+        filename = f'images_nasa/image{number}{extension(art_link)}'
         dowloands_art(art_link, filename)
 
 def earth ():
@@ -36,7 +36,7 @@ def earth ():
         date = i['date'].split()
         date = date[0].replace('-', '/')
         link = f'https://api.nasa.gov/EPIC/archive/natural/{date}/png/{image}.png?api_key={os.getenv("API_KEY")}'
-        filename = f'images_earth/image{number}{expansion(link)}'
+        filename = f'images_earth/image{number}{extension(link)}'
         dowloands_art(link, filename)
 
 
