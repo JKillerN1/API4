@@ -11,7 +11,7 @@ def nasa ():
     response = requests.get(url_nasa_apod, params=param)
     response.raise_for_status()
     art_links = response.json()
-    for number, i in enumerate(art_links):
+    for number, i in enumerate(art_links, start=1):
         art_link = i['url']
         filename = f'images_nasa/image{number}{extension(art_link)}'
         dowloands_art(art_link, filename)
@@ -23,7 +23,7 @@ def earth ():
     response.raise_for_status()
     art_links = response.json()
     art_links = art_links[:5]
-    for number, i in enumerate(art_links):
+    for number, i in enumerate(art_links, start=1):
         image = i['image']
         date = i['date'].split()
         date = date[0].replace('-', '/')

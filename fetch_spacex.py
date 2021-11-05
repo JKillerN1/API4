@@ -10,7 +10,7 @@ def fetch_spacex_last_launch ():
     response = requests.get(url_link)
     response.raise_for_status()
     art_links = response.json()[65]['links']['flickr_images']
-    for art_number, art in enumerate(art_links):
+    for art_number, art in enumerate(art_links, start=1):
         filename = f'images/image{art_number+1}{extension(art)}'
         dowloands_art(art, filename)
 
