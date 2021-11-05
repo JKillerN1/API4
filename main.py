@@ -5,14 +5,14 @@ from random import choice
 from dotenv import load_dotenv
 import telegram
 
-from fetch_nasa import earth
-from fetch_nasa import nasa
+from fetch_nasa import downloads_images_earth
+from fetch_nasa import downloads_images_from_the_nasa
 from fetch_spacex import fetch_spacex_last_launch
 
 def main():
     load_dotenv()
-    nasa()
-    earth()
+    downloads_images_from_the_nasa()
+    downloads_images_earth()
     fetch_spacex_last_launch()
     bot = telegram.Bot(token=os.getenv('TOKEN_BOT'))
     names_directions = ['images_earth', 'images', 'images_nasa']
