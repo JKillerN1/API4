@@ -17,7 +17,7 @@ fetch_spacex_last_launch()
 bot = telegram.Bot(token=os.getenv('TOKEN_BOT'))
 
 names_directions = ['images_earth', 'images', 'images_nasa']
-timer = 86400
+timer = 10
 while True:
     time.sleep(timer)
     random_path = choice(names_directions)

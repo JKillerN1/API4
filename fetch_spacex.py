@@ -10,7 +10,7 @@ def expansion (url):
     image_expansion = os.path.splitext(urlparse(url).path)
     return image_expansion[1]
 
-def dowlands_art (url, filename):
+def dowloands_art (url, filename):
     response = requests.get(url)
     response.raise_for_status()
     with open(filename, 'wb') as file:
@@ -23,7 +23,6 @@ def fetch_spacex_last_launch ():
     art_links = response.json()[-1]['links']['flickr_images']
     for art_number, art in enumerate(art_links):
         filename = f'images/image{art_number+1}{expansion(art)}'
-        dowlands_art(art, filename)
+        dowloands_art(art, filename)
         expansion(art)
 
-fetch_spacex_last_launch()
