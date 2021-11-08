@@ -5,8 +5,8 @@ from dowload_art_with_extension import download_arts
 
 
 def fetch_spacex_last_launch():
-    url_link = 'https://api.spacexdata.com/v4/launches/latest'
-    response = requests.get(url_link)
+    api_spacex_url = 'https://api.spacexdata.com/v4/launches/latest'
+    response = requests.get(api_spacex_url)
     response.raise_for_status()
     art_links = response.json()['links']['flickr']['original']
     for art_number, art in enumerate(art_links, start=1):
