@@ -5,6 +5,7 @@ import requests
 from dowload_art_with_extension import defines_the_extension
 from dowload_art_with_extension import download_arts
 
+
 def fetch_spacex_last_launch():
     url_link = 'https://api.spacexdata.com/v3/launches'
     response = requests.get(url_link)

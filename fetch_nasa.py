@@ -5,6 +5,7 @@ import requests
 from dowload_art_with_extension import defines_the_extension
 from dowload_art_with_extension import download_arts
 
+
 def downloads_images_from_the_nasa():
     url_nasa_apod = 'https://api.nasa.gov/planetary/apod'
     param = {'api_key': os.getenv('API_KEY'), 'count': '5'}
@@ -15,6 +16,7 @@ def downloads_images_from_the_nasa():
         art_link = i['url']
         filename = f'images_nasa/image{number}{defines_the_extension(art_link)}'
         download_arts(art_link, filename)
+
 
 def downloads_images_earth():
     url_earth = 'https://api.nasa.gov/EPIC/api/natural/images'
@@ -30,6 +32,3 @@ def downloads_images_earth():
         link = f'https://api.nasa.gov/EPIC/archive/natural/{date}/png/{image}.png?api_key={os.getenv("API_KEY")}'
         filename = f'images_earth/image{number}{defines_the_extension(link)}'
         download_arts(link, filename)
-
-
-
