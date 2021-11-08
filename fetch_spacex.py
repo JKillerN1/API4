@@ -1,5 +1,3 @@
-from pathlib import Path
-
 import requests
 
 from dowload_art_with_extension import define_extension
@@ -15,6 +13,4 @@ def fetch_spacex_last_launch():
         filename = f'images/image{art_number+1}{define_extension(art)}'
         download_arts(art, filename)
 
-if __name__ == '__main__':
-    Path("images").mkdir(parents=True, exist_ok=True)
 

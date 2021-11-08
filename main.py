@@ -1,5 +1,6 @@
 import os
 import time
+from pathlib import Path
 from random import choice
 
 from dotenv import load_dotenv
@@ -10,6 +11,9 @@ from fetch_nasa import download_images_nasa
 from fetch_spacex import fetch_spacex_last_launch
 
 if __name__ == '__main__':
+    Path("images").mkdir(parents=True, exist_ok=True)
+    Path("images_earth").mkdir(parents=True, exist_ok=True)
+    Path("images_nasa").mkdir(parents=True, exist_ok=True)
     load_dotenv()
     download_images_nasa()
     download_images_earth()
