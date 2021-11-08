@@ -2,11 +2,11 @@ import os
 
 import requests
 
-from dowload_art_with_extension import defines_the_extension
+from dowload_art_with_extension import define_extension
 from dowload_art_with_extension import download_arts
 
 
-def downloads_images_from_the_nasa():
+def download_images_nasa():
     url_nasa_apod = 'https://api.nasa.gov/planetary/apod'
     param = {'api_key': os.getenv('API_KEY'), 'count': '5'}
     response = requests.get(url_nasa_apod, params=param)
@@ -14,11 +14,11 @@ def downloads_images_from_the_nasa():
     art_links = response.json()
     for number, i in enumerate(art_links, start=1):
         art_link = i['url']
-        filename = f'images_nasa/image{number}{defines_the_extension(art_link)}'
+        filename = f'images_nasa/image{number}{define_extension(art_link)}'
         download_arts(art_link, filename)
 
 
-def downloads_images_earth():
+def download_images_earth():
     url_earth = 'https://api.nasa.gov/EPIC/api/natural/images'
     param = {'api_key': os.getenv("API_KEY"), 'natural': 'Most Recent Natural Color'}
     response = requests.get(url_earth, params=param)

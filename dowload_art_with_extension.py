@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 import requests
 
 
-def defines_the_extension(url):
+def define_extension(url):
     image_expansion = os.path.splitext(urlparse(url).path)
     return image_expansion[1]
 
