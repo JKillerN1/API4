@@ -29,6 +29,7 @@ def download_earth_images():
         image = i['image']
         date = i['date'].split()
         date = date[0].replace('-', '/')
-        link = f'https://api.nasa.gov/EPIC/archive/natural/{date}/png/{image}.png?api_key={os.getenv("API_KEY")}'
+        link = f'https://api.nasa.gov/EPIC/archive/natural/{date}/png/{image}.png'
+        link_param = {'api_key': os.getenv("API_KEY")}
         filename = f'images_earth/image{number}{define_extension(link)}'
-        download_arts(link, filename)
+        download_arts(link, filename, link_param)
