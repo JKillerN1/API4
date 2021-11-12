@@ -15,8 +15,9 @@ if __name__ == '__main__':
     Path("images_earth").mkdir(parents=True, exist_ok=True)
     Path("images_nasa").mkdir(parents=True, exist_ok=True)
     load_dotenv()
-    download_nasa_images()
-    download_earth_images()
+    api_key = os.getenv('API_KEY')
+    download_nasa_images(api_key)
+    download_earth_images(api_key)
     fetch_spacex_last_launch()
     bot = telegram.Bot(token=os.getenv('TOKEN_BOT'))
     names_directions = ['images_earth', 'images', 'images_nasa']
