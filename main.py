@@ -21,9 +21,12 @@ if __name__ == '__main__':
     fetch_spacex_last_launch()
     bot = telegram.Bot(token=os.getenv('TOKEN_BOT'))
     names_directions = ['images_earth', 'images', 'images_nasa']
-    timer = 10
+    timer = 86400
     while True:
-        time.sleep(timer)
         random_path = choice(names_directions)
-        bot.send_document(chat_id=os.getenv('CHAT_ID'),
-                          document=open(f'{random_path}/{choice(os.listdir(random_path))}', 'rb'))
+        if len(os.listdir(random_path)) == 0:
+            continue
+        else:
+            bot.send_photo(chat_id=os.getenv('CHAT_ID'),
+                              photo=open(f'{random_path}/{choice(os.listdir(random_path))}', 'rb'))
+        time.sleep(timer)
