@@ -24,9 +24,7 @@ if __name__ == '__main__':
     timer = 86400
     while True:
         random_path = choice(names_directions)
-        if len(os.listdir(random_path)) == 0:
-            continue
-        else:
+        if len(os.listdir(random_path)) != 0:
             bot.send_photo(chat_id=os.getenv('CHAT_ID'),
                               photo=open(f'{random_path}/{choice(os.listdir(random_path))}', 'rb'))
-        time.sleep(timer)
+            time.sleep(timer)
