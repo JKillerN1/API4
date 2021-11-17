@@ -1,11 +1,12 @@
 import os
 from urllib.parse import urlparse
+from urllib.parse import unquote
 
 import requests
 
 
 def define_extension(url):
-    image_expansion = os.path.splitext(urlparse(url).path)
+    image_expansion = os.path.splitext(unquote(urlparse(url).path))
     return image_expansion[1]
 
 
