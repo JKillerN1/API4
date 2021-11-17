@@ -21,14 +21,13 @@ if __name__ == '__main__':
     load_dotenv()
     api_key = os.getenv('API_KEY')
     names_directions = ['images_earth', 'images', 'images_nasa']
-    Path(names_directions[1]).mkdir(parents=True, exist_ok=True)
-    Path(names_directions[0]).mkdir(parents=True, exist_ok=True)
-    Path(names_directions[2]).mkdir(parents=True, exist_ok=True)
+    for i in range(0, 3):
+        Path(names_directions[i]).mkdir(parents=True, exist_ok=True)
     download_nasa_images(api_key)
     download_earth_images(api_key)
     fetch_spacex_last_launch()
     bot = telegram.Bot(token=os.getenv('TOKEN_BOT'))
-    timer = 86400
+    timer = 1
     while True:
         sending_in_telegram_image(names_directions, bot)
         time.sleep(timer)
