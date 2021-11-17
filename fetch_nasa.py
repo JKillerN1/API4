@@ -3,7 +3,7 @@ import os
 import requests
 
 from dowload_art_with_extension import define_extension
-from dowload_art_with_extension import download_arts
+from dowload_art_with_extension import download_art
 
 
 def download_nasa_images(api_key):
@@ -15,7 +15,7 @@ def download_nasa_images(api_key):
     for art_number, art in enumerate(art_links, start=1):
         art_link = art['url']
         filename = f'images_nasa/image{art_number}{define_extension(art_link)}'
-        download_arts(art_link, filename)
+        download_art(art_link, filename)
 
 
 def download_earth_images(api_key):
@@ -30,6 +30,6 @@ def download_earth_images(api_key):
         date = art['date'].split()
         date = date[0].replace('-', '/')
         link = f'https://api.nasa.gov/EPIC/archive/natural/{date}/png/{image}.png'
-        link_param = {'api_key': os.getenv("API_KEY")}
+        link_param = {'api_key': api_key}
         filename = f'images_earth/image{art_number}{define_extension(link)}'
-        download_arts(link, filename, link_param)
+        download_art(link, filename, link_param)
