@@ -10,7 +10,7 @@ def define_extension(url):
     return image_expansion[1]
 
 
-def download_arts(url, filename, param=''):
+def download_art(url, filename, param=''):
     response = requests.get(url, param)
     response.raise_for_status()
     with open(filename, 'wb') as file:
