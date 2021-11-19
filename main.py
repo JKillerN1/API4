@@ -13,8 +13,10 @@ from fetch_spacex import fetch_spacex_last_launch
 def sending_in_telegram_image(folder_names, bot):
     random_path = choice(folder_names)
     if len(os.listdir(random_path)) != 0:
-        bot.send_photo(chat_id=os.getenv('CHAT_ID'),
-                       photo=open(f'{random_path}/{choice(os.listdir(random_path))}', 'rb'))
+        with open(f'{random_path}/{choice(os.listdir(random_path))}', 'rb') as image:
+            art = image.read()
+            bot.send_photo(chat_id=os.getenv('CHAT_ID'),
+                        photo=art)
 
 
 if __name__ == '__main__':
