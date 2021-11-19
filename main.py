@@ -25,9 +25,9 @@ if __name__ == '__main__':
     folder_names = ['images_earth', 'images', 'images_nasa']
     for number in range(0, 3):
         Path(folder_names[number]).mkdir(parents=True, exist_ok=True)
-    download_nasa_images(api_key)
-    download_earth_images(api_key)
-    fetch_spacex_last_launch()
+    download_nasa_images(api_key, folder_names[2])
+    download_earth_images(api_key, folder_names[0])
+    fetch_spacex_last_launch(folder_names[1])
     bot = telegram.Bot(token=os.getenv('TOKEN_BOT'))
     timer = 1
     while True:
