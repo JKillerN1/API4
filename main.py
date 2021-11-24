@@ -24,8 +24,8 @@ if __name__ == '__main__':
     load_dotenv()
     api_key = os.getenv('API_NASA_KEY')
     folder_names = ['images_earth', 'images', 'images_nasa']
-    for number in range(0, 3):
-        Path(folder_names[number]).mkdir(parents=True, exist_ok=True)
+    for image in folder_names:
+        Path(image).mkdir(parents=True, exist_ok=True)
     download_nasa_images(api_key, folder_names[2])
     download_earth_images(api_key, folder_names[0])
     fetch_spacex_last_launch(folder_names[1])
