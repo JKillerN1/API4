@@ -18,6 +18,11 @@ CHAT_ID='@dvmn_flood'
 ```
 Чтобы бот заработал нужно ему в сообщения отправить ```/start```.
 
+Также нужно зайти на сайт NASA и сгенерировать API Key. Он должен выглядить примерно так:
+```
+API_NASA_KEY='bReWmdwdfRQj9Pqec76LrkOudbW3XB6WlD27Zcj9'
+```
+
 Python3 должен быть уже установлен. Затем используйте pip(или pip3, если есть конфликт с Python2) для установки зависимостей:
 ```
 pip install -r requirements.txt
