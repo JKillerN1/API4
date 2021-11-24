@@ -22,7 +22,7 @@ def send_image_in_telegram(folder_names, bot):
 
 if __name__ == '__main__':
     load_dotenv()
-    api_key = os.getenv('API_KEY')
+    api_key = os.getenv('API_NASA_KEY')
     folder_names = ['images_earth', 'images', 'images_nasa']
     for number in range(0, 3):
         Path(folder_names[number]).mkdir(parents=True, exist_ok=True)
