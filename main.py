@@ -30,7 +30,7 @@ if __name__ == '__main__':
     download_earth_images(api_key, folder_names[0])
     fetch_spacex_last_launch(folder_names[1])
     bot = telegram.Bot(token=os.getenv('TOKEN_BOT'))
-    timer = 86400
+    timer = int(os.getenv('TIMER'))
     while True:
         send_image_in_telegram(folder_names, bot)
         time.sleep(timer)
