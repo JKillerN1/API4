@@ -10,7 +10,7 @@ from fetch_nasa import download_earth_images
 from fetch_nasa import download_nasa_images
 from fetch_spacex import fetch_spacex_last_launch
 
-def sending_in_telegram_image(folder_names, bot):
+def send_image_in_telegram(folder_names, bot):
     random_path = choice(folder_names)
     if os.listdir(random_path):
         with open(f'{random_path}/{choice(os.listdir(random_path))}', 'rb') as image:
@@ -31,5 +31,5 @@ if __name__ == '__main__':
     bot = telegram.Bot(token=os.getenv('TOKEN_BOT'))
     timer = 1
     while True:
-        sending_in_telegram_image(folder_names, bot)
+        send_image_in_telegram(folder_names, bot)
         time.sleep(timer)
